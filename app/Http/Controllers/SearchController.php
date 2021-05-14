@@ -20,6 +20,8 @@ class SearchController extends Controller
        
         $response =  GifApiClient::search([
             'q' => $q,
+            'offset' => $request->input('offset'),
+            'limit' => $request->input('limit')
         ]);
 
         return \view('search', $response);

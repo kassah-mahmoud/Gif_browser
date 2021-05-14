@@ -11,8 +11,16 @@
 
         $counter = 0;
     @endphp
+    <a class="p-2 rounded-lg hover:bg-blue-600 bg-gray-400"
+        href="{{ route('search', [
+            'q' => old('q'),
+            'offset' => ($currentPage - 1) * $count
+        ]) }}">
+            Previous Page
+    </a>
     @for ($pageNum = 1; $pageNum <= $numOfPages; $pageNum++)
-       @if ($pageNum <= 5 || $pageNum >= $numOfPages - 5)
+        
+       @if ($pageNum <= 5 || $pageNum >= $numOfPages - 5 || $pageNum === $currentPage)
 
             <a class="p-2 rounded-lg hover:bg-blue-600 {{ $pageNum === $currentPage ? "bg-blue-400 text-white cursor-not-allowed" : "bg-gray-400 text-gray-800"}}"
             href="{{ route('search', [
@@ -31,5 +39,12 @@
             
        @endif
     @endfor
+    <a class="p-2 rounded-lg hover:bg-blue-600 bg-gray-400"
+        href="{{ route('search', [
+            'q' => old('q'),
+            'offset' => ($currentPage + 1) * $count
+        ]) }}">
+            Next Page
+    </a>
    
 </div>
