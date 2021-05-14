@@ -26,14 +26,12 @@
                         </button>
                        
                     </form>
-                   {{-- {{  dd($pagination) }} --}}
                     <div class="w-full">
                         @if ($pagination)
                             @if ($pagination['total_count'] == 0)
                                 <div>There are no search results</div>     
-                                {{  dd($pagination) }}
+                                
                             @else
-                            {{-- {{  dd($data[0]['images']) }} --}}
                                 <x-gifs-grid :data="$data" />
 
                                 <x-pagination-links :pagination="$pagination" />
